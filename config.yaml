@@ -1,0 +1,44 @@
+model:
+  name: klue/roberta-base
+  max_seq_length: 128
+
+training:
+  fft:
+    learning_rate: 5.0e-5
+    batch_size: 32
+    num_epochs: 5
+    warmup_ratio: 0.1
+    weight_decay: 0.01
+    optimizer: adamw
+  lora:
+    learning_rate: 3.0e-4
+    batch_size: 32
+    num_epochs: 5
+    warmup_ratio: 0.1
+    weight_decay: 0.01
+    dropout: 0.1
+    optimizer: adamw
+
+lora:
+  all_12:
+    rank: 4
+    alpha: 8
+    target_modules: ["query", "value"]
+    layers: [0,1,2,3,4,5,6,7,8,9,10,11]
+  first_last_4:
+    rank: 12
+    alpha: 24
+    target_modules: ["query", "value"]
+    layers: [0,1,10,11]
+  random_4:
+    rank: 12
+    alpha: 24
+    target_modules: ["query", "value"]
+    layers: null
+  select_4:
+    rank: 12
+    alpha: 24
+    target_modules: ["query", "value"]
+    layers: null
+
+seeds: [42, 123, 456]
