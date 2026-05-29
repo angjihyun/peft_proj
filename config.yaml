@@ -39,6 +39,6 @@ lora:
     rank: 12
     alpha: 24
     target_modules: ["query", "value"]
-    layers: null
+    layers: [7, 8, 10, 11]
 
 seeds: [42, 123, 456]
