@@ -1,0 +1,10 @@
+{
+  "base_model.model.roberta.encoder.layer.0.attention.self.query": 2.103403329849243,
+  "base_model.model.roberta.encoder.layer.0.attention.self.value": 1.7174040079116821,
+  "base_model.model.roberta.encoder.layer.1.attention.self.query": 2.0441787242889404,
+  "base_model.model.roberta.encoder.layer.1.attention.self.value": 2.4657442569732666,
+  "base_model.model.roberta.encoder.layer.10.attention.self.query": 5.941949844360352,
+  "base_model.model.roberta.encoder.layer.10.attention.self.value": 3.4348678588867188,
+  "base_model.model.roberta.encoder.layer.11.attention.self.query": 9.53511905670166,
+  "base_model.model.roberta.encoder.layer.11.attention.self.value": 4.2102437019348145
+}

@@ -1,0 +1,6 @@
+{
+  "base_model.model.roberta.encoder.layer.0.attention.self.key": 4.602369785308838,
+  "base_model.model.roberta.encoder.layer.1.attention.self.key": 4.510590553283691,
+  "base_model.model.roberta.encoder.layer.10.attention.self.key": 9.662184715270996,
+  "base_model.model.roberta.encoder.layer.11.attention.self.key": 11.655527114868164
+}

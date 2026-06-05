@@ -29,8 +29,8 @@ def load_nli_data(model_name: str, max_seq_length: int = 128):
     tokenized_train = dataset["train"].map(preprocess, batched=True, remove_columns=cols_to_remove)
     tokenized_val = dataset["validation"].map(preprocess, batched=True, remove_columns=cols_to_remove)
 
-    tokenized_train.set_format("torch")
-    tokenized_val.set_format("torch")
+    tokenized_train.set_format("torch", columns=["input_ids", "attention_mask", "labels"])
+    tokenized_val.set_format("torch", columns=["input_ids", "attention_mask", "labels"])
 
     print(f"train: {len(tokenized_train)}개, val: {len(tokenized_val)}개")
     return tokenized_train, tokenized_val, tokenizer

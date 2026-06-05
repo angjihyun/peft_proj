@@ -1,0 +1,24 @@
+{
+  "task": "NLI",
+  "condition": "K-only",
+  "seed": 123,
+  "cka_scores": [
+    0.3055,
+    0.0656,
+    0.0534,
+    0.0435,
+    0.0566,
+    0.0652,
+    0.0861,
+    0.179,
+    0.9129,
+    0.8723,
+    0.082,
+    0.0858
+  ],
+  "mean_cka": 0.234,
+  "most_changed_layer": 4,
+  "most_changed_cka": 0.0435,
+  "least_changed_layer": 9,
+  "least_changed_cka": 0.9129
+}

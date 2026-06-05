@@ -41,7 +41,7 @@ base_hidden = get_hidden_states(base_model, loader, device)
 del base_model
 torch.cuda.empty_cache()
 
-conditions = ["FFT", "All-12", "First-Last-4", "Random-4", "Select-4"]
+conditions = ["QV", "Q-only", "K-only", "V-only", "QKV"]
 for condition in conditions:
     for seed in [42, 123, 456]:
         checkpoint_dir = Path(f"results/NLI/{condition}/seed{seed}")

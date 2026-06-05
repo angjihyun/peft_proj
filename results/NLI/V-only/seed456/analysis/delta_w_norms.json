@@ -1,0 +1,6 @@
+{
+  "base_model.model.roberta.encoder.layer.0.attention.self.value": 2.7167515754699707,
+  "base_model.model.roberta.encoder.layer.1.attention.self.value": 4.0258917808532715,
+  "base_model.model.roberta.encoder.layer.10.attention.self.value": 7.561880111694336,
+  "base_model.model.roberta.encoder.layer.11.attention.self.value": 6.653110504150391
+}

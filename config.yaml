@@ -40,5 +40,30 @@ lora:
     alpha: 24
     target_modules: ["query", "value"]
     layers: [7, 8, 10, 11]
+  qv:
+    rank: 12
+    alpha: 24
+    target_modules: ["query", "value"]
+    layers: [0,1,10,11]
+  q_only:
+    rank: 24
+    alpha: 48
+    target_modules: ["query"]
+    layers: [0,1,10,11]
+  k_only:
+    rank: 24
+    alpha: 48
+    target_modules: ["key"]
+    layers: [0,1,10,11]
+  v_only:
+    rank: 24
+    alpha: 48
+    target_modules: ["value"]
+    layers: [0,1,10,11]
+  qkv:
+    rank: 8
+    alpha: 16
+    target_modules: ["query", "key", "value"]
+    layers: [0,1,10,11]
 
 seeds: [42, 123, 456]

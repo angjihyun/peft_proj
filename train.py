@@ -4,7 +4,7 @@ import random
 import numpy as np
 import torch
 from pathlib import Path
-from transformers import TrainingArguments, Trainer
+from transformers import TrainingArguments, Trainer, AutoModelForSequenceClassification
 from sklearn.metrics import accuracy_score
 from torch.utils.data import DataLoader
 import yaml
@@ -195,6 +195,10 @@ def save_results(model, trainer, task, condition, seed, elapsed,
 
 # ── 실험 실행 ─────────────────────────────────────────
 def run_experiment(condition: str, seed: int, config: dict):
+    save_dir = Path(f"results/NLI/{condition}/seed{seed}")
+    if (save_dir / "results.json").exists():
+        print(f"[Skip] {condition} seed{seed} already done")
+        return None
     set_seed(seed)
     task = "NLI"
     print(f"\n=== 실험 시작: {condition} / seed {seed} ===")
@@ -261,32 +265,23 @@ def run_experiment(condition: str, seed: int, config: dict):
 
     results = save_results(model, trainer, task, condition, seed,
                            elapsed, val_data, grad_summary, selected_layers)
+    del model
+    torch.cuda.empty_cache()
     return results
 
 if __name__ == "__main__":
-    with open("/workspace/config.yaml", "r") as f:
+    with open("/workspace/peft_proj/config.yaml", "r") as f:
         config = yaml.safe_load(f)
 
-    conditions = ["FFT", "All-12", "First-Last-4", "Random-4", "Select-4"]
+    conditions = ["QV", "Q-only", "K-only", "V-only", "QKV"]
     task = "NLI"
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
     for condition in conditions:
         for seed in config["seeds"]:
             run_experiment(condition, seed, config)
-
+    import subprocess
     print("\n=== CKA 분석 시작 ===")
-    _, val_data, _ = load_nli_data(config["model"]["name"], config["model"]["max_seq_length"])
-    loader = DataLoader(val_data, batch_size=32)
-
-    base_model = AutoModelForSequenceClassification.from_pretrained(
-        "klue/roberta-base", num_labels=3).to(device)
-    base_hidden = get_hidden_states(base_model, loader, device)
-    del base_model
-    torch.cuda.empty_cache()
-
-    for condition in conditions:
-        for seed in config["seeds"]:
-            run_cka(task, condition, seed, base_hidden, val_data, device)
+    subprocess.run(["python", "run_cka.py"], check=True)
 
     print("\n전체 완료!")
