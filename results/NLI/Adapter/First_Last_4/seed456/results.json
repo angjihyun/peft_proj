@@ -1,0 +1,15 @@
+{
+  "condition": "First-Last-4",
+  "seed": 456,
+  "layers": [
+    0,
+    1,
+    10,
+    11
+  ],
+  "accuracy": 0.818,
+  "trainable_params": 2007043,
+  "total_params": 112625155,
+  "trainable_pct": 1.7820557050509718,
+  "elapsed_sec": 187.80108857154846
+}

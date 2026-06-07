@@ -1,0 +1,23 @@
+{
+  "condition": "All-12",
+  "seed": 456,
+  "layers": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "accuracy": 0.849,
+  "trainable_params": 1964003,
+  "total_params": 112582115,
+  "trainable_pct": 1.744507109321938,
+  "elapsed_sec": 203.06836032867432
+}

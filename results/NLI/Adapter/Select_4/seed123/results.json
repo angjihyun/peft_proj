@@ -1,0 +1,15 @@
+{
+  "condition": "Select-4",
+  "seed": 123,
+  "layers": [
+    0,
+    2,
+    4,
+    5
+  ],
+  "accuracy": 0.8396666666666667,
+  "trainable_params": 2007043,
+  "total_params": 112625155,
+  "trainable_pct": 1.7820557050509718,
+  "elapsed_sec": 189.57382583618164
+}
