@@ -20,13 +20,13 @@ def get_model(condition: str, lora_config: dict = None, num_labels: int = 3):
     target_modules = get_target_modules(condition)
 
     config = LoraConfig(
-        task_type=TaskType.SEQ_CLS,  # 추가
+        task_type=TaskType.SEQ_CLS,
         r=rank,
         lora_alpha=alpha,
+        lora_dropout=0.1,
         target_modules=target_modules,
         layers_to_transform=layers,
         bias="none",
-        modules_to_save=["classifier"],
     )
 
     model = get_peft_model(model, config)
